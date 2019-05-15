@@ -1,0 +1,97 @@
+---
+title: "Exam"
+author: '150451'
+date: "14 de mayo de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+##1.- Create a numeric vector that contains the months of a year. Then, create another vector containing the name for each month. Later, you should assign the months and names. Finally, you should select and display the months related to the summer season (June, July, August)
+
+Months <- c(1:12)
+MonthNames <- c("January","February", "March", "April", "May", "June","July", "August","September", "October","November", "December")
+
+Matrix1 <- matrix(c(Months,MonthNames),ncol =2)
+
+print(Matrix1[6,2])
+print(Matrix1[7,2])
+print(Matrix1[8,2])
+
+#2.- Construct a matrix with 5 rows containing the numbers 1 up to 15, filled row-wise.
+
+matrix(1:15,ncol=5,byrow = TRUE)
+
+
+#3.-Create a factor with these observations "XXL", "XXL", "XXL", "XL", "L", "M", "M", "S", "S", "S" and print a summary
+
+vector1 <- c("XXL", "XXL", "XXL", "XL", "L", "M", "M", "S", "S", "S")
+
+print(summary(vector1))
+
+
+#4.- Create and print a data frame that should contain:
+  #5 of your courses (e.g. Fundamentals of Programming, Object-Oriented Programming, Databases, etc ).
+  #5 of your marks
+  #5 of your professors' names
+
+Courses <- c("Technologial Innovation", "Topics","Investigation", "Programming", "History" )
+Marks <- c(8,8,7,5,9)
+ProfNames <- c("Abraham","Alan","Beatriz","Gilberto","Miguel")
+
+Courses_df <- data.frame(Courses,Marks,ProfNames)
+
+print(Courses_df)
+
+##5.- Load the dataset labeled as ITU_WB.csv that is located in the data folder and storage this dataset in a variable called itu. Then, you should describe the composition of the dataset. This description must contain the number of observations, variables and the type of each variable 
+
+itu <- read.csv("data/ITU_WB.csv")
+
+str(itu)
+
+  #Number of observations = 3735 
+  #Number of variables    = 12
+  #Variables and Types
+  #$num                          = int
+  #$Economy                      = Factor
+  #$Code                         = Factor
+  #$Region                       = Factor
+  #$Income.group                 = Factor
+  #$year                         = int
+  #$Internet.value               = num
+  #$Total.population             = int
+  #$GDP..US..                    = num
+  #$Life.Expectancy..Years.      = num
+  #$GDP.per.capita.income.       = num
+  #$Fertility..Births.per.woman  = num
+
+
+#6.- Filter the **itu** dataset to retrieve only the observation from Mexico, grouped by year and  in descending order selecting the  "Internet value" column
+ library(dplyr)
+
+```
